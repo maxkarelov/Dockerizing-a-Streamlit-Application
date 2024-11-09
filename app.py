@@ -24,7 +24,7 @@ if st.button("Конвертировать"):
 
         with st.spinner("Конвертация..."):
             command = [
-                "ffmpeg", "-i", temp_input_path, "-vf", f"scale={width}:{height}",
+                "ffmpeg", "-y", "-i", temp_input_path, "-vf", f"scale={width}:{height}",
                 "-b:v", f"{bitrate}k", output_path
             ]
             process = subprocess.run(command, capture_output=True, text=True)
